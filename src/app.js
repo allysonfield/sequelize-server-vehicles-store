@@ -4,7 +4,7 @@ import cors from "cors";
 // import routes from './routes';
 
 import "./database";
-import route from "./routes";
+import route from "./generateRoute";
 
 // import general from "./routeGeneral";
 

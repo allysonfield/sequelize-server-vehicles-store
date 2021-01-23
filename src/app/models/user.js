@@ -6,7 +6,7 @@ class User extends Model {
       {
         id: {
           allowNull: false,
-          autoIncrement: false,
+          autoIncrement: true,
           primaryKey: true,
           type: DataTypes.INTEGER,
         },
