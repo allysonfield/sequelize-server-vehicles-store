@@ -1,0 +1,1 @@
+# sequelize-server-vehicles-store
