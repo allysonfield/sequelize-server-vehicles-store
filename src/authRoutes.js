@@ -2,6 +2,8 @@ import express from "express";
 import swaggerJsDoc from "swagger-jsdoc";
 import swaggerUI from "swagger-ui-express";
 import User from "./app/controllers/User/routes";
+import Car from "./app/controllers/Car/routes";
+import CarBooking from "./app/controllers/CarBooking/routes";
 
 const routes = express.Router();
 
@@ -49,5 +51,7 @@ routes.get("/connect", ({ res }) => {
 });
 
 routes.use("/user", User);
+routes.use("/car", Car);
+routes.use("/booking", CarBooking);
 
 export default routes;

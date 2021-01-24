@@ -1,10 +1,9 @@
 import express from "express";
 import cors from "cors";
-
-// import routes from './routes';
+import routes from "./routes";
 
 import "./database";
-import route from "./generateRoute";
+import route from "./authRoutes";
 
 // import general from "./routeGeneral";
 
@@ -22,6 +21,7 @@ class App {
   }
 
   routes() {
+    this.server.use(routes);
     this.server.use(route);
   }
 }

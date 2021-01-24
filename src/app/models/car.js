@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 
-class User extends Model {
+class Cars extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -10,22 +10,19 @@ class User extends Model {
           primaryKey: true,
           type: DataTypes.INTEGER,
         },
-        name: {
+        color: {
           type: DataTypes.STRING,
         },
-        email: {
-          type: DataTypes.STRING,
+        price: {
+          type: DataTypes.DECIMAL,
         },
-        birthdate: {
+        branch: {
           type: DataTypes.INTEGER,
         },
-        password: {
+        year: {
           type: DataTypes.STRING,
         },
-        status: {
-          type: DataTypes.STRING,
-        },
-        verification_code: {
+        name: {
           type: DataTypes.STRING,
         },
         createdAt: {
@@ -47,4 +44,4 @@ class User extends Model {
   }
 }
 
-export default User;
+export default Cars;

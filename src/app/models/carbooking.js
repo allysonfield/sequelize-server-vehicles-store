@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 
-class User extends Model {
+class CarBooking extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -10,23 +10,11 @@ class User extends Model {
           primaryKey: true,
           type: DataTypes.INTEGER,
         },
-        name: {
-          type: DataTypes.STRING,
-        },
-        email: {
-          type: DataTypes.STRING,
-        },
-        birthdate: {
+        car_id: {
           type: DataTypes.INTEGER,
         },
-        password: {
-          type: DataTypes.STRING,
-        },
-        status: {
-          type: DataTypes.STRING,
-        },
-        verification_code: {
-          type: DataTypes.STRING,
+        user_id: {
+          type: DataTypes.INTEGER,
         },
         createdAt: {
           allowNull: false,
@@ -43,8 +31,9 @@ class User extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.CarBooking, { foreignKey: "id" });
+    this.belongsTo(models.User, { foreignKey: "id" });
+    this.belongsTo(models.Cars, { foreignKey: "id" });
   }
 }
 
-export default User;
+export default CarBooking;
