@@ -1,5 +1,5 @@
-import { Router } from "express";
-import CarController from "./CarController";
+import { Router } from 'express';
+import CarController from './CarController';
 
 const carRoutes = Router();
 
@@ -47,15 +47,18 @@ const carRoutes = Router();
  *              price:
  *                type: number
  *                example: 50.000
- *              branch:
- *                type: string
- *                example: 'volkswagem'
+ *              branch_id:
+ *                type: integer
+ *                example: 1
  *              year:
  *                type: string
  *                example: '2021/2022'
  *              name:
  *                type: string
  *                example: 'Gol'
+ *              image:
+ *                type: array
+ *                example: [{image: 'url'}, {image: 'url'}, {image: 'url'}]
  *      responses:
  *        '200':
  *          description: A successful response
@@ -63,7 +66,7 @@ const carRoutes = Router();
  *      - Bearer: []
  */
 
-carRoutes.get("/list", CarController.index);
-carRoutes.post("/create", CarController.store);
+carRoutes.get('/list', CarController.index);
+carRoutes.post('/create', CarController.store);
 
 export default carRoutes;

@@ -1,34 +1,35 @@
-import express from "express";
-import swaggerJsDoc from "swagger-jsdoc";
-import swaggerUI from "swagger-ui-express";
-import User from "./app/controllers/User/routes";
-import Car from "./app/controllers/Car/routes";
-import CarBooking from "./app/controllers/CarBooking/routes";
+import express from 'express';
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUI from 'swagger-ui-express';
+import User from './app/controllers/User/routes';
+import Car from './app/controllers/Car/routes';
+import CarBooking from './app/controllers/CarBooking/routes';
+import Branch from './app/controllers/Branch/routes';
 
 const routes = express.Router();
 
 const swaggerOptions = {
   swaggerDefinition: {
     info: {
-      version: "1.0.0",
-      title: "Vehicle store Api Docs",
-      description: "Api Docs for vehicles store",
+      version: '1.0.0',
+      title: 'Vehicle store Api Docs',
+      description: 'Api Docs for vehicles store',
       contact: {
-        name: "Allyson Monteiro",
-        email: "allysonfield2@gmail.com",
+        name: 'Allyson Monteiro',
+        email: 'allysonfield2@gmail.com',
       },
-      servers: ["http://localhost:3333"],
+      servers: ['http://localhost:3333'],
     },
     securityDefinitions: {
       Bearer: {
-        description: "Token",
-        type: "apiKey",
-        name: "Authorization",
-        in: "header",
+        description: 'Token',
+        type: 'apiKey',
+        name: 'Authorization',
+        in: 'header',
       },
     },
   },
-  apis: ["**/*routes.js"],
+  apis: ['**/*routes.js'],
 };
 
 const cssOptions = {
@@ -41,17 +42,18 @@ const cssOptions = {
 };
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 routes.use(
-  "/api-docs",
+  '/api-docs',
   swaggerUI.serve,
   swaggerUI.setup(swaggerDocs, cssOptions, { explorer: true })
 );
 
-routes.get("/connect", ({ res }) => {
-  res.json("Hello, you are connected in server_vehicles_store");
+routes.get('/connect', ({ res }) => {
+  res.json('Hello, you are connected in server_vehicles_store');
 });
 
-routes.use("/user", User);
-routes.use("/car", Car);
-routes.use("/booking", CarBooking);
+routes.use('/user', User);
+routes.use('/car', Car);
+routes.use('/booking', CarBooking);
+routes.use('/branch', Branch);
 
 export default routes;

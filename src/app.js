@@ -1,9 +1,9 @@
-import express from "express";
-import cors from "cors";
-import routes from "./routes";
+import express from 'express';
+import cors from 'cors';
+import routes from './routes';
 
-import "./database";
-import route from "./authRoutes";
+import './database';
+import route from './authRoutes';
 
 // import general from "./routeGeneral";
 
@@ -16,7 +16,7 @@ class App {
   }
 
   middlewares() {
-    this.server.use(express.json({ limit: "100mb", extended: true }));
+    this.server.use(express.json({ limit: '100mb', extended: true }));
     this.server.use(cors());
   }
 

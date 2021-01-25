@@ -1,6 +1,8 @@
+const sequelize = require('sequelize');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("User", {
+    await queryInterface.createTable('User', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -29,14 +31,16 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: sequelize.literal('NOW()'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: sequelize.literal('NOW()'),
       },
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable("User");
+    await queryInterface.dropTable('User');
   },
 };

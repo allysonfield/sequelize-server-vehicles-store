@@ -1,7 +1,7 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
-require("dotenv").config({
-  path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env",
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env',
 });
 
 const secret = process.env.SECRET;
@@ -9,7 +9,7 @@ const secret = process.env.SECRET;
 class TokenGenerate {
   async execute({ id, email, userType }) {
     const token = jwt.sign({ id, email, userType }, secret, {
-      expiresIn: "8h",
+      expiresIn: '8h',
     });
     return { token };
   }

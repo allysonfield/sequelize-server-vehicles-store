@@ -1,4 +1,4 @@
-import { Model, DataTypes } from "sequelize";
+import { Sequelize, Model, DataTypes } from 'sequelize';
 
 class User extends Model {
   static init(sequelize) {
@@ -31,10 +31,12 @@ class User extends Model {
         createdAt: {
           allowNull: false,
           type: DataTypes.DATE,
+          defaultValue: Sequelize.literal('NOW()'),
         },
         updatedAt: {
           allowNull: true,
           type: DataTypes.DATE,
+          defaultValue: Sequelize.literal('NOW()'),
         },
       },
       { sequelize }
@@ -43,7 +45,7 @@ class User extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.CarBooking, { foreignKey: "id" });
+    this.hasMany(models.CarBooking, { foreignKey: 'id' });
   }
 }
 

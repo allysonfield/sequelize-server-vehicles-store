@@ -5,9 +5,9 @@ class ExceptionTreatmentService {
     }
 
     if (error.name) {
-      if (error.name === "SequelizeHostNotReachableError") {
+      if (error.name === 'SequelizeHostNotReachableError') {
         return res.json({
-          message: "Data base temporally unavailable",
+          message: 'Data base temporally unavailable',
         });
       }
     }

@@ -1,8 +1,8 @@
-import md5 from "md5";
-import Sequelize from "sequelize";
-import EmailService from "../../services/EmailService";
-import ExceptionTreatmentService from "../../services/ExceptionTreatmentService";
-import database from "../../../config/database";
+import md5 from 'md5';
+import Sequelize from 'sequelize';
+import EmailService from '../../services/EmailService';
+import ExceptionTreatmentService from '../../services/ExceptionTreatmentService';
+import database from '../../../config/database';
 
 const sequelize = new Sequelize(database);
 const datenow = new Date();
@@ -33,7 +33,7 @@ class RegisterController {
 
     await EmailService.execute({
       to: spread.email,
-      subject: "Vehicles Store - Senha Temporária",
+      subject: 'Vehicles Store - Senha Temporária',
       content,
     });
 

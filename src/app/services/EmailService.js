@@ -1,8 +1,8 @@
-import Mail from "nodemailer";
-import Insecure from "insecure";
+import Mail from 'nodemailer';
+import Insecure from 'insecure';
 
-require("dotenv").config({
-  path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env",
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env',
 });
 
 const google = {
@@ -19,7 +19,7 @@ Insecure();
 class EmailService {
   async execute({ to, subject, content }) {
     const mailOptions = {
-      from: "noreply@vehiclesstore.com.br",
+      from: 'noreply@vehiclesstore.com.br',
       // from: 'mensageiroanuenciadigital@up5.com.br',
       to,
       subject,
@@ -30,8 +30,8 @@ class EmailService {
         console.log(error);
         return false;
       }
-      console.log("......................email sent.................");
-      return "......................email sent.................";
+      console.log('......................email sent.................');
+      return '......................email sent.................';
     });
   }
 }

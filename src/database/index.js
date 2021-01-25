@@ -1,11 +1,13 @@
-import Sequelize from "sequelize";
+import Sequelize from 'sequelize';
 
-import databaseConfig from "../config/database";
-import User from "../app/models/user";
-import Car from "../app/models/car";
-import CarBooking from "../app/models/carbooking";
+import databaseConfig from '../config/database';
+import User from '../app/models/user';
+import Car from '../app/models/car';
+import CarBooking from '../app/models/carbooking';
+import Branches from '../app/models/branch';
+import Images from '../app/models/images';
 
-const models = [User, Car, CarBooking];
+const models = [User, Car, CarBooking, Branches, Images];
 
 class Database {
   constructor() {

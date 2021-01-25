@@ -1,6 +1,6 @@
-import { Router } from "express";
-import AuthenticateController from "./app/controllers/Auth/AuthenticateController";
-import RegisterController from "./app/controllers/Register/RegisterController";
+import { Router } from 'express';
+import AuthenticateController from './app/controllers/Auth/AuthenticateController';
+import RegisterController from './app/controllers/Register/RegisterController';
 
 const routes = Router();
 /**
@@ -75,7 +75,7 @@ const routes = Router();
  *      - Bearer: []
  */
 
-routes.post("/login", AuthenticateController.show);
-routes.post("/create", RegisterController.store);
+routes.post('/login', AuthenticateController.show);
+routes.post('/create', RegisterController.store);
 
 export default routes;

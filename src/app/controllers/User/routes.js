@@ -1,5 +1,5 @@
-import { Router } from "express";
-import UserController from "./UserController";
+import { Router } from 'express';
+import UserController from './UserController';
 
 const userRoutes = Router();
 
@@ -23,6 +23,6 @@ const userRoutes = Router();
  *      - Bearer: []
  */
 
-userRoutes.get("/list", UserController.index);
+userRoutes.get('/list', UserController.index);
 
 export default userRoutes;

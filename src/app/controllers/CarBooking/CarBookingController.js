@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import CarBooking from "../../models/carbooking";
+import jwt from 'jsonwebtoken';
+import CarBooking from '../../models/carbooking';
 
 const datenow = new Date();
 class CarBookingController {
@@ -10,7 +10,7 @@ class CarBookingController {
 
   async show(req, res) {
     const authHeader = req.headers.authorization;
-    const [, token] = authHeader.split(" ");
+    const [, token] = authHeader.split(' ');
     const decode = jwt.decode(token);
     const booking = await CarBooking.findAll({
       where: { user_id: decode.id },
@@ -21,7 +21,7 @@ class CarBookingController {
 
   async store(req, res) {
     const authHeader = req.headers.authorization;
-    const [, token] = authHeader.split(" ");
+    const [, token] = authHeader.split(' ');
     const decode = jwt.decode(token);
     const { car_id } = req.body;
     const booking = await CarBooking.create({
@@ -33,7 +33,7 @@ class CarBookingController {
       await ExceptionTreatmentService.execute({ error, res });
     });
 
-    return res.json({ booking, message: "Booking done" });
+    return res.json({ booking, message: 'Booking done' });
   }
 }
 

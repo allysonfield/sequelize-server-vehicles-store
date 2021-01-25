@@ -2,26 +2,18 @@ const sequelize = require('sequelize');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('CarBooking', {
+    await queryInterface.createTable('Branches', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      car_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'Cars', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-        allowNull: false,
+      name: {
+        type: Sequelize.STRING,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'User', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-        allowNull: false,
+      logo: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('CarBooking');
+    await queryInterface.dropTable('Branches');
   },
 };

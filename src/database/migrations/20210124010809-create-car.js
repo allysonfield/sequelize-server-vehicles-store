@@ -1,6 +1,8 @@
+const sequelize = require('sequelize');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Cars", {
+    await queryInterface.createTable('Cars', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,8 +15,12 @@ module.exports = {
       price: {
         type: Sequelize.DECIMAL,
       },
-      branch: {
-        type: Sequelize.STRING,
+      branch_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'Branches', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: false,
       },
       year: {
         type: Sequelize.STRING,
@@ -25,14 +31,16 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: sequelize.literal('NOW()'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: sequelize.literal('NOW()'),
       },
     });
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable("Cars");
+    await queryInterface.dropTable('Cars');
   },
 };

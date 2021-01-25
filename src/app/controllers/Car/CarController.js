@@ -1,5 +1,7 @@
-import Car from "../../models/car";
-import ExceptionTreatmentService from "../../services/ExceptionTreatmentService";
+import Car from '../../models/car';
+import ExceptionTreatmentService from '../../services/ExceptionTreatmentService';
+
+import Images from '../../models/images';
 
 const datenow = new Date();
 class CarController {
@@ -17,7 +19,14 @@ class CarController {
     }).catch(async (error) => {
       await ExceptionTreatmentService.execute({ error, res });
     });
-    return res.json({ car, message: "Car created" });
+
+    const filter = spread.images.map(({ image }) => ({
+      car_id: car.id,
+      url: image,
+    }));
+
+    const image = await Images.bulkCreate(filter, { returning: true });
+    return res.json({ car, image, message: 'Car created' });
   }
 }
 

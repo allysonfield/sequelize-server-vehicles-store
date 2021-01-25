@@ -1,4 +1,4 @@
-import { Model, DataTypes } from "sequelize";
+import { Sequelize, Model, DataTypes } from 'sequelize';
 
 class Cars extends Model {
   static init(sequelize) {
@@ -14,9 +14,9 @@ class Cars extends Model {
           type: DataTypes.STRING,
         },
         price: {
-          type: DataTypes.DECIMAL,
+          type: DataTypes.STRING,
         },
-        branch: {
+        branch_id: {
           type: DataTypes.INTEGER,
         },
         year: {
@@ -28,10 +28,12 @@ class Cars extends Model {
         createdAt: {
           allowNull: false,
           type: DataTypes.DATE,
+          defaultValue: Sequelize.literal('NOW()'),
         },
         updatedAt: {
           allowNull: true,
           type: DataTypes.DATE,
+          defaultValue: Sequelize.literal('NOW()'),
         },
       },
       { sequelize }
@@ -40,7 +42,9 @@ class Cars extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.CarBooking, { foreignKey: "id" });
+    this.hasMany(models.CarBooking, { foreignKey: 'id' });
+    this.hasMany(models.Images, { foreignKey: 'id' });
+    this.belongsTo(models.Branches, { foreignKey: 'id' });
   }
 }
 

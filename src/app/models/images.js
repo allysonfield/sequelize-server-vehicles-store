@@ -1,6 +1,6 @@
-import { Model, DataTypes, Sequelize } from 'sequelize';
+import { Sequelize, Model, DataTypes } from 'sequelize';
 
-class CarBooking extends Model {
+class Images extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -13,8 +13,8 @@ class CarBooking extends Model {
         car_id: {
           type: DataTypes.INTEGER,
         },
-        user_id: {
-          type: DataTypes.INTEGER,
+        url: {
+          type: DataTypes.STRING,
         },
         createdAt: {
           allowNull: false,
@@ -33,9 +33,8 @@ class CarBooking extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.User, { foreignKey: 'id' });
     this.belongsTo(models.Cars, { foreignKey: 'id' });
   }
 }
 
-export default CarBooking;
+export default Images;

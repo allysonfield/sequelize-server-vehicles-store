@@ -1,5 +1,5 @@
-import { Router } from "express";
-import CarBookingController from "./CarBookingController";
+import { Router } from 'express';
+import CarBookingController from './CarBookingController';
 
 const bookingRoutes = Router();
 
@@ -51,7 +51,7 @@ const bookingRoutes = Router();
  *      - Bearer: []
  */
 
-bookingRoutes.get("/list", CarBookingController.index);
-bookingRoutes.post("/create", CarBookingController.store);
+bookingRoutes.get('/list', CarBookingController.index);
+bookingRoutes.post('/create', CarBookingController.store);
 
 export default bookingRoutes;
