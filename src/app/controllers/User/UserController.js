@@ -1,4 +1,4 @@
-import User from '../../models/user';
+const User = require('../../models/user');
 
 class UserController {
   async index(req, res) {
@@ -8,4 +8,4 @@ class UserController {
   }
 }
 
-export default new UserController();
+module.exports = new UserController();

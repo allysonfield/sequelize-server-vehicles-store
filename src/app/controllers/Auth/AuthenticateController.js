@@ -1,6 +1,7 @@
-import md5 from 'md5';
-import User from '../../models/user';
-import TokenGenerate from '../../services/TokenGenerate';
+const md5 = require('md5');
+const User = require('../../models/user');
+
+const TokenGenerate = require('../../services/TokenGenerate');
 
 class AuthenticateController {
   async update(req, res) {
@@ -41,4 +42,4 @@ class AuthenticateController {
   }
 }
 
-export default new AuthenticateController();
+module.exports = new AuthenticateController();

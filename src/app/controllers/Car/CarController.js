@@ -1,13 +1,55 @@
-import Car from '../../models/car';
-import ExceptionTreatmentService from '../../services/ExceptionTreatmentService';
+const Car = require('../../models/car');
+const ExceptionTreatmentService = require('../../services/ExceptionTreatmentService');
 
-import Images from '../../models/images';
+const Images = require('../../models/images');
 
 const datenow = new Date();
 class CarController {
   async index(req, res) {
     const car = await Car.findAll();
     return res.json(car);
+  }
+
+  async show(req, res) {
+    const { car_id } = req.params;
+    const car = await Car.findOne({
+      where: { id: car_id },
+      include: [
+        {
+          model: Images,
+          attributes: [
+            ['url', 'image'],
+            ['url', 'thumbImage'],
+          ],
+        },
+      ],
+    }).catch(async (error) => {
+      await ExceptionTreatmentService.execute({ error, res });
+    });
+    if (!car) {
+      return res.status(401).json('Not found');
+    }
+    return res.json(car);
+  }
+
+  async list(req, res) {
+    const { branch_id, limit, page } = req.params;
+    const offset = 0 + page * limit;
+    const cars = await Car.findAndCountAll({
+      where: { branch_id },
+      include: [
+        {
+          model: Images,
+          attributes: [
+            ['url', 'image'],
+            ['url', 'thumbImage'],
+          ],
+        },
+      ],
+      limit,
+      offset,
+    });
+    return res.json(cars);
   }
 
   async store(req, res) {
@@ -30,4 +72,4 @@ class CarController {
   }
 }
 
-export default new CarController();
+module.exports = new CarController();

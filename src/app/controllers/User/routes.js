@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import UserController from './UserController';
+const { Router } = require('express');
+const UserController = require('./UserController');
 
 const userRoutes = Router();
 
@@ -25,4 +25,4 @@ const userRoutes = Router();
 
 userRoutes.get('/list', UserController.index);
 
-export default userRoutes;
+module.exports = userRoutes;

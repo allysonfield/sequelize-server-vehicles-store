@@ -1,10 +1,10 @@
-import express from 'express';
-import swaggerJsDoc from 'swagger-jsdoc';
-import swaggerUI from 'swagger-ui-express';
-import User from './app/controllers/User/routes';
-import Car from './app/controllers/Car/routes';
-import CarBooking from './app/controllers/CarBooking/routes';
-import Branch from './app/controllers/Branch/routes';
+const express = require('express');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+const User = require('./app/controllers/User/routes');
+const Car = require('./app/controllers/Car/routes');
+const CarBooking = require('./app/controllers/CarBooking/routes');
+const Branch = require('./app/controllers/Branch/routes');
 
 const routes = express.Router();
 
@@ -56,4 +56,4 @@ routes.use('/car', Car);
 routes.use('/booking', CarBooking);
 routes.use('/branch', Branch);
 
-export default routes;
+module.exports = routes;

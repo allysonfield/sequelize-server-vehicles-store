@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 require('dotenv').config({
   path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env',
@@ -15,4 +15,4 @@ class TokenGenerate {
   }
 }
 
-export default new TokenGenerate();
+module.exports = new TokenGenerate();

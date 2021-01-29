@@ -1,4 +1,4 @@
-import { Sequelize, Model, DataTypes } from 'sequelize';
+const { Sequelize, Model, DataTypes } = require('sequelize');
 
 class User extends Model {
   static init(sequelize) {
@@ -24,6 +24,7 @@ class User extends Model {
         },
         status: {
           type: DataTypes.STRING,
+          defaultValue: 'N',
         },
         verification_code: {
           type: DataTypes.STRING,
@@ -45,8 +46,8 @@ class User extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.CarBooking, { foreignKey: 'id' });
+    this.hasMany(models.CarBooking, { foreignKey: 'user_id' });
   }
 }
 
-export default User;
+module.exports = User;

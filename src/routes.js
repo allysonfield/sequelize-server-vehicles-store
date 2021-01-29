@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import AuthenticateController from './app/controllers/Auth/AuthenticateController';
-import RegisterController from './app/controllers/Register/RegisterController';
+const { Router } = require('express');
+const AuthenticateController = require('./app/controllers/Auth/AuthenticateController');
+const RegisterController = require('./app/controllers/Register/RegisterController');
 
 const routes = Router();
 /**
@@ -65,9 +65,6 @@ const routes = Router();
  *              status:
  *                type: string
  *                example: 'N'
- *              verification_code:
- *                type: string
- *                example: '4s4a4ss4'
  *      responses:
  *        '200':
  *          description: A successful response
@@ -75,7 +72,41 @@ const routes = Router();
  *      - Bearer: []
  */
 
+/**
+ * @swagger
+ * # schemes:
+ * # - http
+ * paths:
+ *  /verification/{email}/{verification_code}:
+ *    get:
+ *      tags:
+ *      - User
+ *      description: Verify the email of the user
+ *      parameters:
+ *        - name: email
+ *          in: path
+ *          required: true
+ *          description: User's email
+ *          type: string
+ *          example: 'johndoe@gmail.com'
+ *        - name: verification_code
+ *          in: path
+ *          required: true
+ *          description: Verification code
+ *          type: string
+ *          example: 'hjad76dahgis6d78aushdsdsd'
+ *      responses:
+ *        '200':
+ *          description: email verified with success.
+ *      security:
+ *      - Bearer: []
+ */
+
 routes.post('/login', AuthenticateController.show);
 routes.post('/create', RegisterController.store);
+routes.get(
+  '/verification/:email/:verification_code',
+  AuthenticateController.update
+);
 
-export default routes;
+module.exports = routes;

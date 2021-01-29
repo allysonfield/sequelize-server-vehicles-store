@@ -1,4 +1,4 @@
-import { Model, DataTypes, Sequelize } from 'sequelize';
+const { Model, DataTypes, Sequelize } = require('sequelize');
 
 class CarBooking extends Model {
   static init(sequelize) {
@@ -34,8 +34,8 @@ class CarBooking extends Model {
 
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'id' });
-    this.belongsTo(models.Cars, { foreignKey: 'id' });
+    this.belongsTo(models.Cars, { foreignKey: 'car_id' });
   }
 }
 
-export default CarBooking;
+module.exports = CarBooking;

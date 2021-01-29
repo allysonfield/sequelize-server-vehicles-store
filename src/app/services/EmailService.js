@@ -1,5 +1,5 @@
-import Mail from 'nodemailer';
-import Insecure from 'insecure';
+const Mail = require('nodemailer');
+const Insecure = require('insecure');
 
 require('dotenv').config({
   path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env',
@@ -35,4 +35,4 @@ class EmailService {
     });
   }
 }
-export default new EmailService();
+module.exports = new EmailService();

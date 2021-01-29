@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import CarBookingController from './CarBookingController';
+const { Router } = require('express');
+const CarBookingController = require('./CarBookingController');
 
 const bookingRoutes = Router();
 
@@ -16,6 +16,26 @@ const bookingRoutes = Router();
  *      tags:
  *      - Booking
  *      description: Returns car list
+ *      responses:
+ *        '200':
+ *          description: A successful response
+ *      security:
+ *      - Bearer: []
+ */
+
+/**
+ * @swagger
+ * tags:
+ *  name: Booking
+ *  description: Car Booking routes
+ * # schemes:
+ * # - http
+ * paths:
+ *  /booking/mylist:
+ *    get:
+ *      tags:
+ *      - Booking
+ *      description: Returns car booking list
  *      responses:
  *        '200':
  *          description: A successful response
@@ -53,5 +73,6 @@ const bookingRoutes = Router();
 
 bookingRoutes.get('/list', CarBookingController.index);
 bookingRoutes.post('/create', CarBookingController.store);
+bookingRoutes.get('/mylist', CarBookingController.show);
 
-export default bookingRoutes;
+module.exports = bookingRoutes;

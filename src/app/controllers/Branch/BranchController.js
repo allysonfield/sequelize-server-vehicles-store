@@ -1,4 +1,4 @@
-import Branch from '../../models/branch';
+const Branch = require('../../models/branch');
 
 class BranchController {
   async index(req, res) {
@@ -8,4 +8,4 @@ class BranchController {
   }
 }
 
-export default new BranchController();
+module.exports = new BranchController();

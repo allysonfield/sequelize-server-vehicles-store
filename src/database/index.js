@@ -1,11 +1,11 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize');
 
-import databaseConfig from '../config/database';
-import User from '../app/models/user';
-import Car from '../app/models/car';
-import CarBooking from '../app/models/carbooking';
-import Branches from '../app/models/branch';
-import Images from '../app/models/images';
+const databaseConfig = require('../config/database');
+const User = require('../app/models/user');
+const Car = require('../app/models/car');
+const CarBooking = require('../app/models/carbooking');
+const Branches = require('../app/models/branch');
+const Images = require('../app/models/images');
 
 const models = [User, Car, CarBooking, Branches, Images];
 
@@ -25,4 +25,4 @@ class Database {
   }
 }
 
-export default new Database();
+module.exports = new Database();

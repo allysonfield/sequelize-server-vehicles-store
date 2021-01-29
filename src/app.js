@@ -1,9 +1,9 @@
-import express from 'express';
-import cors from 'cors';
-import routes from './routes';
+const express = require('express');
+const cors = require('cors');
+const routes = require('./routes');
 
-import './database';
-import route from './authRoutes';
+require('./database');
+const route = require('./authRoutes');
 
 // import general from "./routeGeneral";
 
@@ -26,4 +26,4 @@ class App {
   }
 }
 
-export default new App().server;
+module.exports = new App().server;

@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import BranchController from './BranchController';
+const { Router } = require('express');
+const BranchController = require('./BranchController');
 
 const brancheRoutes = Router();
 
@@ -26,4 +26,4 @@ const brancheRoutes = Router();
 brancheRoutes.get('/list', BranchController.index);
 // brancheRoutes.post('/create', BranchController.store);
 
-export default brancheRoutes;
+module.exports = brancheRoutes;

@@ -1,9 +1,9 @@
-require("dotenv").config({
-  path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env",
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env',
 });
 
 module.exports = {
-  dialect: "postgres",
+  dialect: 'postgres',
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
