@@ -33,7 +33,7 @@ const swaggerOptions = {
 };
 
 const cssOptions = {
-  customCss: `.topbar-wrapper img {content:url(https://www.diretotech.com.br/static/media/NotificaDiretoLogo.2b1e0d09.png); width:90px; height:auto; display: block;
+  customCss: `.topbar-wrapper img {content:url(https://image.flaticon.com/icons/png/512/1493/1493169.png); width:90px; height:auto; display: block;
     margin-left: 0 auto;
     margin-right: auto;}
   .swagger-ui .topbar { background-color: #FCFBFB; border-bottom: 2px solid #fbbd29; },
