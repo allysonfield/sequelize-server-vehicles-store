@@ -106,7 +106,7 @@ const carRoutes = Router();
  *                example: 'red'
  *              price:
  *                type: string
- *                example: '50.000'
+ *                example: '50'
  *              branch_id:
  *                type: number
  *                example: 1
