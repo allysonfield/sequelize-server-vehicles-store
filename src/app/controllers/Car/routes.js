@@ -108,7 +108,7 @@ const carRoutes = Router();
  *                type: string
  *                example: '50.000'
  *              branch_id:
- *                type: integer
+ *                type: number
  *                example: 1
  *              year:
  *                type: string
